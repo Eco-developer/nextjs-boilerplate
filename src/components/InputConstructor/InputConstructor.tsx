@@ -8,6 +8,7 @@ import { InputConstructorProps } from "@/interfaces";
 import { 
     INPUT_STANDARD, 
     PASSWORD_INPUT, 
+    RENDER, 
     SELECT_INPUT, 
     TEXT_FIELD_INPUT 
 } from "@/const/inputTypes";
@@ -138,6 +139,15 @@ export const InputConstructor: React.FC<InputConstructorProps> = ({
                     size={input.size}
                 />
             )
+        }
+        case RENDER: {
+            return input.render ? 
+                input.render({ 
+                    values,
+                    onChange,
+                    onSelect,
+                    errors
+                })   : null
         }
         default:
             return null;
