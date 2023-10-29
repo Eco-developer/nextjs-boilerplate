@@ -52,7 +52,7 @@ export const SelectInput: React.FC<SelectInputProps> = ({
                     htmlFor={id}
                     variant="outlined"
                 >
-                    {labelText}
+                    {labelText}{required ? " *" : ""}
                 </InputLabel>
                 <Select
                     label={labelText}
